@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-from os import listdir
+from os import listdir, path
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ def main():
 @app.route("/pictures_urls")
 def pictures_urls():
     result = {'pictures': list()}
-    for pict in listdir('static\\pictures\\'):
+    for pict in listdir(path.join('static','pictures')):
         result['pictures'].append(url_for('static', filename='pictures/'+pict))
     return result
 
