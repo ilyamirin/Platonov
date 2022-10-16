@@ -12,7 +12,7 @@ def main():
 @app.route("/pictures_urls")
 def pictures_urls():
     result = {'pictures': list()}
-    for pict in listdir(path.join('static','pictures')):
+    for pict in sorted(listdir(path.join('static', 'pictures'))):
         result['pictures'].append(url_for('static', filename='pictures/'+pict))
     return result
 
